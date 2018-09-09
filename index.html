@@ -180,6 +180,34 @@
     <p class="setup-similar-label">Петр Петров</p>
   </div>
 </template>
+<script>
+var fireballSize;
+console.log(fireballSize);
+fireballSize =22;
+console.log(fireballSize);
+</script>
+<script>
+var wizardSpeed;
+wizardSpeed  =3;
+console.log(wizardSpeed);
+var wizardWidth;
+console.log(wizardWidth);
+wizardWidth =70;
+</script>
+<script>
+var getFireballSpeed=function(left){
+if (true == left ){ return 5;}
+else {return 2;}    /*проверить return*/
+}
+/*делаем высоту мага*/
+var getWizardHeight;
+getWizardHeight= 1.337 * wizardWidth;  /*ввел переменную для вычисления роста мага*/
+
+var  getWizardX=function(/*width*/ wizardWidth){   /*1.ввожу данные после меняю ширину на переменную ширину */
+var  /*ввожу данные*/getWizardHeight= 1.337 * wizardWidth;
+return getWizardHeight; /*дальше пока не могу понять условие*/
+}
+</script>
 
 <script src="js/game.js"></script>
 
