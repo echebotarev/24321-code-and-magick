@@ -18,9 +18,14 @@ var COATCOLOR = ['rgb(101, 137, 164)','rgb(241, 43, 107)','rgb(146, 100, 161)','
 var EYESCOLOR = ['black','red','blue','yellow','green']
 
 var randomInteger = function (max) {
-  //console.log(max);
+
   return Math.round(Math.random()*max)
 }
+
+//var createWizzards = function (name,coatColor,eyesColor) {
+//for (var i = 0; i < 4; i++)
+//}
+//для ниже стоящего массива нужно написать код.
 var arr = [];
 for (var i = 0; i < 4; i++) {
   var name = NAMES[randomInteger(NAMES.length -1)] + ' ' + F_NAMES[ randomInteger(F_NAMES.length -1)];
@@ -33,52 +38,23 @@ for (var i = 0; i < 4; i++) {
   };
 
   arr.push(obj);
-
-  //получить рандомное имя
-  //получить рандомную фамилию
-  //сложить
-  //добавить в массив  // console.log(ADDITION);
 }
-console.log(arr);
 
-/*var wizards = [    //создаем обьект. в котором будем описывать свойства
-  {
-    name: WIZARD_NAMES[0],
-    coatColor: 'rgb(101, 137, 164)',
-    eyesColor: 'black'
-  },
-  {
-    name: WIZARD_NAMES[1],
-    coatColor: 'rgb(241, 43, 107)',
-    eyesColor: 'red'
-  },
-  {
-    name: WIZARD_NAMES[2],
-    coatColor: 'rgb(146, 100, 161)',
-    eyesColor: 'blue'
-  },
-  {
-    name: WIZARD_NAMES[3],
-    coatColor: 'rgb(56, 159, 117)',
-    eyesColor: 'yellow'
-  },
-  {
-    name: WIZARD_NAMES[4],
-    coatColor: 'rgb(215, 210, 55)',
-    eyesColor: 'green'
-  },
-  {
-    name: WIZARD_NAMES[5],
-  coatColor: 'rgb(0, 0, 0)',
-  eyesColor: ''}
-];   */
-for (var i = 0; i < 4; i++) {
+for (var i = 0; i < arr.length; i++) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
-
-  wizardElement.querySelector('.setup-similar-label').textContent = name;
-  wizardElement.querySelector('.wizard-coat').style.fill = coatColor;
-  wizardElement.querySelector('.wizard-eyes').style.fill =  eyesColor;
-
+  console.log(arr[i]);
+  console.log(name[i]);
+  wizardElement.querySelector('.setup-similar-label').textContent = arr[i].name;
+  wizardElement.querySelector('.wizard-coat').style.fill = arr[i].coatColor;
+  wizardElement.querySelector('.wizard-eyes').style.fill =  arr[i].eyesColor;
   similarListElement.appendChild(wizardElement);
   }
-  //var fragment = document.createDocumentFragment();
+  var fragment = document.createDocumentFragment();
+  for (var i = 0; i < arr.length; i++){
+    fragment.appendChild(wizardElement(arr[i]));
+    similarListElement.appendChild(fragment);
+    userDialog.querySelector('.setup-similar').classList.remove('hidden');
+  }
+
+//createWizzards функция будет создавать массив магов
+//showWizzards функция будет добавоять в дом

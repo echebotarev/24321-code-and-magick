@@ -49,7 +49,7 @@ window.renderStatistics = function(ctx, names, times) {
 
   for (var i = 0; i < names.length; i++) {
     getColor(names[i]);
-
+    
     ctx.fillText(names[i], CLOUD_X + (BAR_WIDTH + GAP)* i, CLOUD_Y);
     ctx.fillRect(CLOUD_X  + (BAR_WIDTH + GAP) * i, BAR_Y, BAR_WIDTH, (BAR_HEIGHT* times[i]) / maxTime);
   }
