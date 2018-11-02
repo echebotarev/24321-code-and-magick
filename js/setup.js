@@ -22,10 +22,8 @@ var randomInteger = function (max) {
   return Math.round(Math.random()*max)
 }
 
-//var createWizzards = function (name,coatColor,eyesColor) {
-//for (var i = 0; i < 4; i++)
-//}
-//для ниже стоящего массива нужно написать код.
+
+
 var arr = [];
 for (var i = 0; i < 4; i++) {
   var name = NAMES[randomInteger(NAMES.length -1)] + ' ' + F_NAMES[ randomInteger(F_NAMES.length -1)];
@@ -39,22 +37,33 @@ for (var i = 0; i < 4; i++) {
 
   arr.push(obj);
 }
-
-for (var i = 0; i < arr.length; i++) {
+var createWizzards = function () {
   var wizardElement = similarWizardTemplate.cloneNode(true);
-  console.log(arr[i]);
-  console.log(name[i]);
   wizardElement.querySelector('.setup-similar-label').textContent = arr[i].name;
   wizardElement.querySelector('.wizard-coat').style.fill = arr[i].coatColor;
   wizardElement.querySelector('.wizard-eyes').style.fill =  arr[i].eyesColor;
-  similarListElement.appendChild(wizardElement);
-  }
-  var fragment = document.createDocumentFragment();
-  for (var i = 0; i < arr.length; i++){
+  return  wizardElement;
+}
+
+//for (var i = 0; i < arr.length; i++) {
+  //var wizardElement = similarWizardTemplate.cloneNode(true);
+  //console.log(arr[i]);
+  //console.log(name[i]);
+  //wizardElement.querySelector('.setup-similar-label').textContent = arr[i].name;
+  //wizardElement.querySelector('.wizard-coat').style.fill = arr[i].coatColor;
+  //wizardElement.querySelector('.wizard-eyes').style.fill =  arr[i].eyesColor;
+  //similarListElement.appendChild(wizardElement);
+  //}
+  var showWizzards = document.createDocumentFragment();
+  for (var i = 0; i < arr.length; i++) {
+    wizardElement.querySelector('.setup-similar-label').textContent = arr[i].name;
+    wizardElement.querySelector('.wizard-coat').style.fill = arr[i].coatColor;
+    wizardElement.querySelector('.wizard-eyes').style.fill =  arr[i].eyesColor;
     fragment.appendChild(wizardElement(arr[i]));
-    similarListElement.appendChild(fragment);
-    userDialog.querySelector('.setup-similar').classList.remove('hidden');
   }
+  similarListElement.appendChild(showWizzards);
+  userDialog.querySelector('.setup-similar').classList.remove('hidden');
+
 
 //createWizzards функция будет создавать массив магов
 //showWizzards функция будет добавоять в дом
