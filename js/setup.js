@@ -48,3 +48,55 @@ var showWizzards = function (arr) {
 var wizzards = createWizzards();
 showWizzards(wizzards);
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
+
+
+
+var setupOpen = document.querySelector('.setup-open');
+var setup = document.querySelector('.setup');
+//1.2
+var setupClose = document.querySelector('.setup-close');
+//1.1прописывем обработчик событий .на нажатие setupOpen
+//1.1при надажтие сетуп опен у блока сетуп убираем класс хиден
+setupOpen.addEventListener('click',function(){
+  setup.classList.remove('hidden');
+//1.3 evt keyCode = esc = 27
+  document.addEventListener('keydown', function(evt) {
+    if (evt.keyCode === 27) {
+      setup.classList.add('hidden');
+    }
+  });
+});
+//1.4 чтоб сделать активный фокус в разметке прописываем tabindex="0"
+setupOpen.addEventListener('keydown', function(evt) {
+  if (evt.keyCode === 13) {
+    setup.classList.remove('hidden');
+  }
+});
+
+setupClose.addEventListener('click', function() {
+  setup.classList.add('hidden');
+});
+//1.2
+setupClose.addEventListener('keydown',function(evt){
+  if (evt.keyCode === 13) {
+    setup.classList.add('hidden');
+  }
+});
+//заходим в разметку и начинаем прописывать атрбуты
+//заполнение форм? -------пункт 6 задания
+//required атрибут обязательного заполнение ----пункт 2
+
+
+var newForm = document.querySelector('.button setup-submit');
+setup.classList.add('hidden'); //может сначало нужно показать блок сетуп?
+newForm.addEventListener('click',function(evt){
+  if (evt.keyCode === 13) {
+  setup.classList.remove('hidden');
+};
+});
+
+
+var wizardCoat = document.querySelector('.wizard-coat')
+wizardCoat.addEventListener('click',function(){
+    ctx.fillStyle = 'hsl(240,' + Math.round(Math.random() * 100)  +'%,'+Math.round(Math.random() * 100) +'% )'
+});
