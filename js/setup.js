@@ -110,15 +110,24 @@ wizzardCoat.addEventListener('click', function () {
     'rgb(215, 210, 55)',
     'rgb(0, 0, 0)'
   ];
-  wizzardCoat.style.fill = COLORS[randomInteger(COLORS.length - 1)];
+  var color = COLORS[randomInteger(COLORS.length - 1)];
+  var inputCoat = document.querySelector('input[name="coat-color"]');
+  inputCoat.value = color;
+  wizzardCoat.style.fill = color;
 });
 
 wizzardEyes.addEventListener('click', function () {
   var EYES = ['black', 'red', 'blue', 'yellow', 'green'];
-  wizzardEyes.style.fill = EYES[randomInteger(EYES.length - 1)];
+  var eyes = EYES[randomInteger(EYES.length - 1)];
+  var inputEyes = document.querySelector('input[name="eyes-color"]');
+  inputEyes.value = eyes;
+  wizzardEyes.style.fill = eyes;
 });
 
 fireBox.addEventListener('click', function () {
   var FIREBALL = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
-  fireBox.style.backgroundColor = FIREBALL[randomInteger(FIREBALL.length - 1)];
+  var fireball = FIREBALL[randomInteger(FIREBALL.length - 1)];
+  var inputBall = document.querySelector('input[name="fireball-color"]');
+  inputBall.value = fireball;
+  fireBox.style.backgroundColor = fireball;
 });
